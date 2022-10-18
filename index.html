@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <iframe src="https://editor.p5js.org/aarushi231001/full/oG-ILyjKh"></iframe>
+    </head>
+    <body>
+        <script>
+
+var score=0;
+var xball ;
+var yball ;
+var xspeed = (2 , 9);
+var yspeed = (-7 , -2);
+var s = true;
+ xball =  Math.floor(Math.random()*3)+200;
+  yball =  200;
+
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(0);
+  fill('#DC143C');
+  rect(380,mouseY,10,80);
+  move();
+  display();
+  bounce();
+  paddle();
+  x = mouseY;
+  //Score card
+  fill("#FFF8DC")
+  textSize(24);
+  text("Score: "+ score, 160,20 );
+  
+  
+}
+function move()
+{
+  xball+=xspeed;
+  yball+=yspeed;
+}
+function display()
+{
+  
+  fill(random(255),random(255),random(255));
+  ellipse(xball,yball,20,20);
+}
+function bounce() {
+
+  if (xball < 10 ||
+    xball > 400 - 25 ) {
+    xspeed*= -1;
+     
+  }
+ 
+  if (yball < 10 ||
+    yball > 400 - 20) {
+    yspeed *= -1;
+  }
+  
+  
+}
+function paddle(){
+  if((xball>400-25))
+  {
+    if((yball>x+80)||yball<x-80)
+    {
+      s=true; 
+      
+    }
+    else 
+    {
+      s=false;
+      
+    }
+    if(s==false)
+      {
+    score++;
+   
+   
+        
+      }
+    
+  }
+  
+  
+ 
+}
+
+
+        </script>
+    </body>
+</html>
